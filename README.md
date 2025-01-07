@@ -14,10 +14,13 @@ Ta projekt prikazuje uporabo **Supabase Auth-KT knjižnice** za avtentikacijo up
 ## 🔧 Zahteve
 
 - **Supabse 3.0.0** ali novejše
-- **Kotlin 1.8.0** ali novejši
+- **Kotlin 2.1.0** ali novejši
 - **Gradle verzija 8.0+**
 - **Supabase API ključ** (pridobljen iz [Supabase nadzorne plošče](https://supabase.com))
 - **Internetna povezava** 
+
+![img_1.png](img_1.png)
+
 
 ---
 
@@ -25,7 +28,8 @@ Ta projekt prikazuje uporabo **Supabase Auth-KT knjižnice** za avtentikacijo up
 
 ```kotlin
 dependencies {
-    implementation("io.github.jan-tennert.supabase:auth-kt:VERSION")
+  implementation("io.github.jan-tennert.supabase:auth-kt:VERSION")
+  implementation("io.ktor:ktor-client-android:VERSION") // HTTP komunikacija
 }
 ```
 ##  ⬇️ Prenos
@@ -80,7 +84,7 @@ val supabase = createSupabaseClient(
 ## Licenca
 # Odprtokoden, pod licenco Apache 2.0
 
-## UPORABA
+## 💻 UPORABA
 - **Dodamo novega uporabnika [Register]**
 ```kotlin
 val user = supabase.auth.signUpWith(Email) {
