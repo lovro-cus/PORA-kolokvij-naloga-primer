@@ -1,19 +1,25 @@
 package com.example.supabaseauthdemo
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.example.moneymind.RegisterFragment
 import com.example.supabaseauthdemo.databinding.ActivityMainBinding
-
-
+import io.github.jan.supabase.auth.auth
+import kotlinx.coroutines.launch
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    private val supabaseClient by lazy {
+        (application as MyApplication).supabaseClient
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +40,15 @@ class MainActivity : AppCompatActivity() {
                 //replaceFragment(MainFragment())
             }
             binding.floatingActionButton.setOnClickListener {
+                lifecycleScope.launch {
+                    try {
+                        supabaseClient.auth.signOut()
+                    }catch (e: Exception){
+                        Toast.makeText(this@MainActivity, "Sign out error", Toast.LENGTH_SHORT).show()
+                    }
+                    replaceFragment(RegisterFragment())
+                }
+
                 //replaceFragment(AddFragment())
             }
         }else{
