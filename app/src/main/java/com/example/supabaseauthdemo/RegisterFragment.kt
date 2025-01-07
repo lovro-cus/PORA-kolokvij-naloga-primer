@@ -39,18 +39,27 @@ class RegisterFragment : Fragment() {
             val email = binding.emailEditText.text.toString().trim()
             val password = binding.passwordEditText.text.toString().trim()
 
-//            if(email.isEmpty() || password.isEmpty()){
-//                Toast.makeText(requireContext(), "Insert data", Toast.LENGTH_SHORT).show()
-//                return@setOnClickListener
-//            }
+            if(email.isEmpty() || password.isEmpty()){
+                Toast.makeText(requireContext(), "Insert data", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             viewLifecycleOwner.lifecycleScope.launch {
                 try {
-                    supabaseClient.auth.signUpWith(Google){
-
+                    supabaseClient.auth.signUpWith(Email){
+                        this.email = email
+                        this.password = password
                     }
                     Toast.makeText(requireContext(),"Registration Successful!", Toast.LENGTH_SHORT).show()
                     parentFragmentManager.popBackStack()
+                    val logInFragment = LogInFragment()
+                    parentFragmentManager.beginTransaction()
+                        .replace(
+                            R.id.fragment_container,
+                            logInFragment
+                        ).addToBackStack(null)
+                        .commit()
+
                 } catch (e: Exception){
                     Toast.makeText(requireContext(), "Registration failed: ${e.message}", Toast.LENGTH_SHORT).show()
                     Log.d("FAILED REG", e.toString())

@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if(isUserLoggedIn()){
-            //replaceFragment(MainFragment())
+            replaceFragment(TestFragment())
         }else{
             replaceFragment(LogInFragment())
         }
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     replaceFragment(RegisterFragment())
                 }
-
+                updateUI()
                 //replaceFragment(AddFragment())
             }
         }else{
@@ -73,7 +73,15 @@ class MainActivity : AppCompatActivity() {
             binding.floatingActionButton2.setImageResource(R.drawable.home)
 
             binding.floatingActionButton.setOnClickListener {
-                //replaceFragment(AddFragment())
+                lifecycleScope.launch {
+                    try {
+                        supabaseClient.auth.signOut()
+                    }catch (e: Exception){
+                        Toast.makeText(this@MainActivity, "Sign out error", Toast.LENGTH_SHORT).show()
+                    }
+                    replaceFragment(RegisterFragment())
+                }
+                updateUI()
             }
             binding.floatingActionButton2.setOnClickListener {
                 //replaceFragment(MainFragment())
@@ -98,7 +106,7 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
     private fun isUserLoggedIn(): Boolean {
-        //val session = supabaseClient.auth.currentSessionOrNull()
-        return false
+        val session = supabaseClient.auth.currentSessionOrNull()
+        return session != null
     }
 }

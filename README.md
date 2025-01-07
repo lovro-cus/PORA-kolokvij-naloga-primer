@@ -105,9 +105,12 @@ supabase.auth.signInWith(Email) {
     email = "example@email.com"
     password = "example-password"
 }
-
-
 ```
+Po prijavi, Supabase pošlje mail na katerem je potrebno potrditi, če ga ne potrdimo ni veljaven
+![users](users.png)
+
+
+
 - **Odjavimo uporabnika [Sign out]**
 ```kotlin
 supabase.auth.signOut()
@@ -184,3 +187,4 @@ supabase.auth.admin.updateUserById(uid = "id") { //Posodobimo uporabnika
 ## Aplikacija:
 ![Prijavna stran](login_screen.PNG)
 ![Registracijska stran](register_screen.PNG)
+![Prijvaljen stran](loggedIn_screen.PNG)
