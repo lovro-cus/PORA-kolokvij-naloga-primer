@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="silver">#E8E8E8</color>
+    <color name="colorPrimary">#5A6C57</color>
+    <color name="colorPrimaryVariant">#f7e0c1</color>
+    <color name="colorSecondary">#E3E1D9</color>
+    <color name="colorSecondaryLighter">#f4f3f0</color>
+    <color name="main_cardview_background">#FFFDFD</color>
+    <color name="buttonPrimary">#FF000000</color>
+    <color name="purple_primary">#8E44AD</color> <!-- Glavna vijolična -->
+    <color name="black_primary">#000000</color> <!-- Črna -->
+    <color name="white_primary">#FFFFFF</color> <!-- Bela -->
+    <color name="purple_light">#DAB6F2</color> <!-- Svetla vijolična -->
+
+</resources>
