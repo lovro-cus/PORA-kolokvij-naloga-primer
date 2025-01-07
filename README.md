@@ -37,7 +37,7 @@ dependencies {
 ```
 ## 🔑 Dovoljenja
 
-```kotlin
+```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"  
     xmlns:tools="http://schemas.android.com/tools">
     
@@ -57,4 +57,5 @@ dependencies {
 
 ## ❓ Zakaj?
 
+- **Brez potrebe po lastnem strežniku za avtentikacijo**
 - 
