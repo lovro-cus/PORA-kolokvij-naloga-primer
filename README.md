@@ -182,5 +182,5 @@ supabase.auth.admin.updateUserById(uid = "id") { //Posodobimo uporabnika
 ```
 
 ## Aplikacija:
-![Prijavna stran](login_screen.png)
-![Registracijska stran](register_screen.png)
+![Prijavna stran](login_screen.PNG)
+![Registracijska stran](register_screen.PNG)
