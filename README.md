@@ -13,11 +13,10 @@ Ta projekt prikazuje uporabo **Supabase Auth-KT knjižnice** za avtentikacijo up
 
 ## 🔧 Zahteve
 
-- **Android Studio** 2021.1.1 ali novejši
 - **Kotlin 1.8.0** ali novejši
 - **Gradle verzija 8.0+**
 - **Supabase API ključ** (pridobljen iz [Supabase nadzorne plošče](https://supabase.com))
-- **Internetna povezava** za dostop do avtentikacijskih storitev
+- **Internetna povezava** 
 
 ---
 
@@ -35,3 +34,19 @@ dependencies {
     // JSON serializacija za prenos podatkov
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
 }
+```
+## 🔑 Dovoljenja
+
+```kotlin
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"  
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+</manifest>
+```
+
+
+## ❓ Zakaj?
+
+- 
