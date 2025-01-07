@@ -66,11 +66,11 @@ val supabase = createSupabaseClient(
         
 </manifest>
 ```
-
+---
 
 ## ❓ Zakaj?
 
-# Supabase Auth predstavlja odprtokodno alternativo storitvam, kot je Firebase Auth, z glavno prednostjo v enostavni integraciji in možnosti samo-gostovanja.
+### Supabase Auth predstavlja odprtokodno alternativo storitvam, kot je Firebase Auth, z glavno prednostjo v enostavni integraciji in možnosti samo-gostovanja.
 
 - **Prednosti**
   - **Enostavna integracija**
@@ -82,7 +82,7 @@ val supabase = createSupabaseClient(
   - **Nujna poštna storitev (za magic link in podobno)**
 
 ## Licenca
-# Odprtokoden, pod licenco Apache 2.0
+### Odprtokoden, pod licenco Apache 2.0
 
 ## 💻 UPORABA
 - **Dodamo novega uporabnika [Register]**
