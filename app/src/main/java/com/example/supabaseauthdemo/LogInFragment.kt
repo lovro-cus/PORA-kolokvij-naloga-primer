@@ -28,7 +28,6 @@ import kotlinx.coroutines.launch
 class LogInFragment : Fragment() {
     private var _binding: FragmentLogInBinding? = null
     private val binding get() = _binding!!
-    private val String: emailUser
 
     private val supabaseClient by lazy {
         (requireContext().applicationContext as MyApplication).supabaseClient
@@ -46,7 +45,6 @@ class LogInFragment : Fragment() {
 
         binding.loginButton.setOnClickListener{
             val email = binding.emailEditText.text.toString().trim()
-            emailUser = binding.emailEditText.text.toString().trim()
             val password = binding.passwordEditText.text.toString().trim()
 
             if(email.isEmpty() || password.isEmpty()){
@@ -71,17 +69,6 @@ class LogInFragment : Fragment() {
 
         }
 
-        binding.registerTextView.setOnClickListener{
-            val resetPasswordButton: TextView = binding.registerTextView
-            resetPasswordButton.setOnClickListener {
-                val email = email.text.toString()
-                if (email.isNotEmpty()) {
-                    resetPassword(email)
-                } else {
-                    Toast.makeText(this, "Vnesi e-poštni naslov!", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
     }
 
 

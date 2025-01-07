@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">SupaBaseApp</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="register"><i>Forgot Password?</i></string>
+    <string name="register"><i>Register</i></string>
     <string name="login"><i>Login</i></string>
     <string name="large_text">
         "Material is the metaphor.\n\n"

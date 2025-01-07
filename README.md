@@ -66,12 +66,21 @@ val supabase = createSupabaseClient(
 
 ## ❓ Zakaj?
 
-- **Brez potrebe po lastnem strežniku za avtentikacijo**
-- **Več načinov avtentikacije**
-    - 
+# Supabase Auth predstavlja odprtokodno alternativo storitvam, kot je Firebase Auth, z glavno prednostjo v enostavni integraciji in možnosti samo-gostovanja.
+
+- **Prednosti**
+  - **Enostavna integracija**
+  - **Podpora različnim načinom prijave**
+  - **Odprtokodnost (možnost self-hosting)**
+  - **Skupnost in ekosistem**
+- **Slabosti**
+  - **Relativno mlada platforma**
+  - **Nujna poštna storitev (za magic link in podobno)**
+
+## Licenca
+# Odprtokoden, pod licenco Apache 2.0
 
 ## UPORABA
-
 - **Dodamo novega uporabnika [Register]**
 ```kotlin
 val user = supabase.auth.signUpWith(Email) {
@@ -133,3 +142,45 @@ val user = supabase.auth.retrieveUserForCurrentSession(updateSession = true)
 ``````
 ## Admin
 *Kot admin lahko sami upravljamo uporabnike, nekaj osnovnih funkcij:*
+```kotlin
+val supabase = createSupabaseClient(
+    supabaseUrl = "https://id.supabase.co",
+    supabaseKey = "supabaseKey"
+) {
+    install(Auth) {
+        minimalSettings() //disables session saving and auto-refreshing
+    }
+    // install other plugins (these will use the service role key)
+}
+supabase.auth.importAuthToken("service_role")
+
+// Access auth admin api
+val adminAuthClient = supabase.auth.admin
+```
+-**Funkcije ki jih lahko izvajamo kot admin**
+
+```kotlin
+val user = supabase.auth.admin.retrieveUserById(uid = "f2a0b0a0-6b1a-4b7a-8f1a-4b7a6b1a8f1a") //Pridobimo uporabinika po ID-ju
+
+val users = supabase.auth.admin.retrieveUsers() //Pridobim vse uporabnike
+
+val userWithEmail = supabase.auth.admin.createUserWithEmail { //Kreiramo uporabnika
+    email = "example@email.com"
+    password = "secretpassword"
+    userMetadata {
+        put("name", "John")
+    }
+}
+
+supabase.auth.admin.deleteUser(uid = "uid") //Izbrišemo uporabnika
+
+
+supabase.auth.admin.updateUserById(uid = "id") { //Posodobimo uporabnika
+    email = "example@email.com"
+}
+// itd..
+```
+
+## Aplikacija:
+![Prijavna stran](login_screen.png)
+![Registracijska stran](register_screen.png)
