@@ -70,7 +70,7 @@ val supabase = createSupabaseClient(
 
 ## ❓ Zakaj?
 
-### Supabase Auth predstavlja odprtokodno alternativo storitvam, kot je Firebase Auth, z glavno prednostjo v enostavni integraciji in možnosti samo-gostovanja.
+#### Supabase Auth predstavlja odprtokodno alternativo storitvam, kot je Firebase Auth, z glavno prednostjo v enostavni integraciji in možnosti samo-gostovanja.
 
 - **Prednosti**
   - **Enostavna integracija**
